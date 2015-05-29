@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<LinearLayout
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.suyonoion.easyviewpagerui.ExpandedViewpagerUI android:id="@+id/id_viewpager" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/background">
+        <android.support.v4.view.PagerTabStrip android:textColor="#ffffffff" android:id="@+id/id_judul" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top" android:background="#90fece70">
+        </android.support.v4.view.PagerTabStrip>
+<!-- 0 -->
+        <LinearLayout android:id="@+id/id_halaman_1" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman1"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_2" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman2"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_3" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman3"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_4" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman4"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_5" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman5"/>
+        </LinearLayout>
+<!-- 5 -->
+        <LinearLayout android:id="@+id/id_halaman_6" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman6"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_7" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman7"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_8" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman8"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_9" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman9"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_10" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman10"/>
+        </LinearLayout>
+        <!-- 10 -->
+        <LinearLayout android:id="@+id/id_halaman_11" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman11"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_12" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman12"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_13" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman13"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_14" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman14"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_15" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman15"/>
+        </LinearLayout>
+        <!-- 15 -->
+        <LinearLayout android:id="@+id/id_halaman_16" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman16"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_17" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman17"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_18" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman18"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_19" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman19"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_20" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman20"/>
+        </LinearLayout>
+        <!-- 20 -->
+        <LinearLayout android:id="@+id/id_halaman_21" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman21"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_22" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman22"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_23" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman23"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_24" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman24"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/id_halaman_25" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+            <include layout="@layout/halaman25"/>
+        </LinearLayout>
+        <!-- 25 -->
+    </com.suyonoion.easyviewpagerui.ExpandedViewpagerUI>
+</LinearLayout>
