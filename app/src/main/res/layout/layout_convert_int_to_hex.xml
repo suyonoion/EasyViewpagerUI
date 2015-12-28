@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:text="Integer To Hex"
+        android:textColor="#b11ea2"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="7dp"
+        android:background="#ffffffff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Angka"
+                android:textColor="#38d26c"/>
+
+            <EditText
+                android:id="@+id/editText_angka"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#cb04c645"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="3"
+                android:textColor="#ffffffff"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_convert"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="#3976d6"
+                android:text="Convert"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Hex Smali"
+                android:textColor="#38d26c"/>
+
+            <EditText
+                android:id="@+id/editText_hex"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#cb04c645"
+                android:editable="false"
+                android:gravity="center"
+                android:text="0x3"
+                android:textColor="#ffffffff"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_kopi"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="#3a77d6"
+                android:text="Copy"
+                android:textColor="#ffffffff"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

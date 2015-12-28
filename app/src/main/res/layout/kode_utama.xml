@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+    <com.suyonoion.easyviewpagerui.ExpandedViewpagerUI
+        android:id="@+id/id_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/transparan">
+
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/id_judul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#80159e58"
+            android:textColor="#ffffffff"/>
+
+        <LinearLayout
+            android:id="@+id/id_halaman_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/a2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Notif"
+                android:textColor="#ff473eff"
+                android:textSize="70sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/id_halaman_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/a3"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.suyonoion.easyviewpagerui.ConvertIntToHext
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/id_halaman_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/a4"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="3"
+                android:textColor="#ff473eff"
+                android:textSize="70sp"/>
+        </LinearLayout>
+    </com.suyonoion.easyviewpagerui.ExpandedViewpagerUI>
+</LinearLayout>
