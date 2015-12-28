@@ -12,6 +12,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(setResource("activity_main","layout"));
+        setContentView(setResource("kode_utama","layout"));
     }
 }

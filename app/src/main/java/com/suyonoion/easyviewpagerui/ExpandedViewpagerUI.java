@@ -1,72 +1,139 @@
 package com.suyonoion.easyviewpagerui;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.view.ViewTreeObserver;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Suyono on 5/26/2015.
+ * Created by Suyono on 12/29/2015
  * Copyright (c) 2015 by Suyono (ion).
  * All rights reserved.
  * This product is protected by copyright and distributed under
  * licenses restricting copying, distribution and decompilation.
  */
+
+@SuppressWarnings("ALL")
 public class ExpandedViewpagerUI extends ViewPager {
-    private PagerTitleStrip Tempat_Judul;
-    private List<String> Mengisi_Tempat_judul;
-    private ImageButton homepage;
     public int setResource(String name, String Type)
     {
         return getContext().getResources().getIdentifier(name, Type, getContext().getPackageName());
     }
 
+    public static int Jumlah_Page = 3;
+    int sdk = android.os.Build.VERSION.SDK_INT;
+
     public ExpandedViewpagerUI (Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        Tempat_Judul = (PagerTitleStrip) findViewById(setResource("id_judul","id"));
-        Mengisi_Tempat_judul = new ArrayList<String>();
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_1","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_2","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_3","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_4","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_5","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_6","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_7","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_8","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_9","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_10","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_11","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_12","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_13","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_14","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_15","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_16","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_17","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_18","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_19","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_20","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_21","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_22","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_23","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_24","string")));
-        Mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_25","string")));
+        List<String> mengisi_Tempat_judul = new ArrayList<>();
+        final List<String> kodestringsxml_str = new ArrayList<>();
+        final List<String> kodeutama_str = new ArrayList<>();
 
+        for (int i=1;i<=Jumlah_Page;i++){
+            try {
+                mengisi_Tempat_judul.add(getResources().getString(setResource("judul_halaman_"+i, "string")));
+            }
 
-        AdapterExpandedViewpagerUI adapter = new AdapterExpandedViewpagerUI(Mengisi_Tempat_judul);
+            catch (Throwable e){
+
+                if (Jumlah_Page>25){
+                    mengisi_Tempat_judul.add("Judul "+i+" belum ditambahkan di strings.xml");
+                    AlertDialog.Builder b = new AlertDialog.Builder(getContext());
+                    final String st = "<LinearLayout android:background=\"@drawable/a3\" android:id=\"@+id/id_halaman_4\" android:layout_width=\"match_parent\" android:layout_height=\"match_parent\" android:orientation=\"vertical\" android:gravity=\"center\">\n" +
+                            "<TextView android:textSize=\"70sp\" android:layout_gravity=\"center\" android:layout_width=\"wrap_content\" android:layout_height=\"wrap_content\" android:text=\"3\" android:textColor=\"#ff473eff\"/>\n" +
+                            "</LinearLayout>";
+
+                    b.setMessage("Berbahaya Jumlah_Page terlalu banyak lebih dari 25 pages, penambahan kode utama tidak akan ditampilkan...!! Dan" +
+                            "Kodeutama->strings.xml->smali belum sinkron (tidak sama). Mengedit 0x3 saja tidak cukup, anda juga perlu mengedit kodeutama dan strings.xml, agar sama. \n \n" +
+                            "Jika anda telah mengubah/mengedit/menambah/menghapus Jumlah_Page = 3 (0x3) menjadi Jumlah_Page = " + Jumlah_Page + ", kodeutama, dan strings.xml maka, \n \n Tolong cek dan edit kembali kode utama di expanded anda dan strings.xml di value , sesuaikan dengan jumlah page yaitu " + Jumlah_Page + " dalam smali. dan tambahkan ini sejumlah pages yang anda mau :\n \n" +
+                            st+"\n\n"+
+                            "sesuaikan dengan id_halaman");
+                    b.setCancelable(true);
+                    b.setNeutralButton("Copy to Clipboard", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                                android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                                clipboard.setText(st);
+                                Toast.makeText(getContext(), "Text Telah Ter-Copy ke Clipboard", Toast.LENGTH_SHORT).show();
+                            } else {
+                                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                                android.content.ClipData clip = android.content.ClipData.newPlainText("Clip", st);
+                                Toast.makeText(getContext(), "Text Telah Ter-Copy ke Clipboard", Toast.LENGTH_SHORT).show();
+                                clipboard.setPrimaryClip(clip);
+                            }
+                            dialog.dismiss();
+                        }
+                    });
+                    b.setTitle("Pesan Saya...!!!");
+                    AlertDialog ad = b.create();
+                    ad.show();
+                } else {
+                    mengisi_Tempat_judul.add("Judul "+i+" belum ditambahkan di strings.xml");
+                    AlertDialog.Builder b = new AlertDialog.Builder(getContext());
+                    kodeutama_str.add(
+                            "<LinearLayout android:background=\"@drawable/a3\" android:id=\"@+id/id_halaman_"+i+"\" android:layout_width=\"match_parent\" android:layout_height=\"match_parent\" android:orientation=\"vertical\" android:gravity=\"center\">\n" +
+                                    " <TextView android:textSize=\"70sp\" android:layout_gravity=\"center\" android:layout_width=\"wrap_content\" android:layout_height=\"wrap_content\" android:text=\""+i+"\" android:textColor=\"#ff473eff\"/>\n" +
+                                    "</LinearLayout> \n \n");
+
+                    b.setMessage("Kodeutama->strings.xml->smali belum sinkron (tidak sama). Mengedit 0x3 saja tidak cukup, anda juga perlu mengedit kodeutama dan strings.xml, agar sama. \n \n" +
+                            "Jika anda telah mengubah/mengedit/menambah/menghapus Jumlah_Page = 3 (0x3) menjadi Jumlah_Page = " + Jumlah_Page + ", kodeutama, dan strings.xml maka, \n \n Tolong cek dan edit kembali kode utama di expanded anda dan strings.xml di value , sesuaikan dengan jumlah page yaitu " + Jumlah_Page + " dalam smali atau perhatikan kode utama dibawah ini silahkan dicontek dan tambahkan ke expanded:\n \n" + kodeutama_str+"\n \n" +
+                            "Copy to Clipboard dan oh iyah Hapus koma(,) kurung buka dan tutup [ ] yah :)");
+                    b.setCancelable(true);
+                    b.setNeutralButton("Copy to Clipboard", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                                android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                                clipboard.setText(kodeutama_str.toString());
+                                Toast.makeText(getContext(), "Text Telah Ter-Copy ke Clipboard", Toast.LENGTH_SHORT).show();
+                            } else {
+                                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                                android.content.ClipData clip = android.content.ClipData.newPlainText("Clip", kodeutama_str.toString());
+                                Toast.makeText(getContext(), "Text Telah Ter-Copy ke Clipboard", Toast.LENGTH_SHORT).show();
+                                clipboard.setPrimaryClip(clip);
+                            }
+                            dialog.dismiss();
+                        }
+                    });
+                    b.setTitle("Pesan Saya...!!!");
+                    AlertDialog ad = b.create();
+                    ad.show();
+                }
+
+            }
+        }
+
+        AdapterExpandedViewpagerUI adapter = new AdapterExpandedViewpagerUI(mengisi_Tempat_judul);
         final ViewPager EasyExpandedViewPagerUI = (ViewPager) this.findViewById(setResource("id_viewpager","id"));
         EasyExpandedViewPagerUI.setPageTransformer(true, new CubeOutTransformer());
         EasyExpandedViewPagerUI.setAdapter(adapter);
-        EasyExpandedViewPagerUI.setOffscreenPageLimit(25);
-        EasyExpandedViewPagerUI.setBackgroundResource(setResource("background","drawable"));
+        EasyExpandedViewPagerUI.setOffscreenPageLimit(Jumlah_Page);
+        if (EasyExpandedViewPagerUI.getWidth()>0){
+            Bitmap image = JadikanBlur.blur(EasyExpandedViewPagerUI);
+            EasyExpandedViewPagerUI.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), image));
+        } else {
+            EasyExpandedViewPagerUI.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    Bitmap image = JadikanBlur.blur(EasyExpandedViewPagerUI);
+                    EasyExpandedViewPagerUI.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), image));
+                }
+            });
+        }
+
+        adapter.notifyDataSetChanged();
     }
 
     public class AdapterExpandedViewpagerUI extends PagerAdapter {
@@ -76,93 +143,37 @@ public class ExpandedViewpagerUI extends ViewPager {
         }
         @Override
         public int getCount () {
-            return 25;
+            return adapterMengisi_Tempat_judul.size();
         }
 
         @Override
         public Object instantiateItem (ViewGroup container,int position){
             int tampilkanMenurutId = 0;
-            switch (position) {
-                case 0:
-                    tampilkanMenurutId = setResource("id_halaman_1","id");
-
-                    break;
-                case 1:
-                    tampilkanMenurutId = setResource("id_halaman_2","id");
-                    break;
-                case 2:
-                    tampilkanMenurutId = setResource("id_halaman_3","id");
-                    break;
-                case 3:
-                    tampilkanMenurutId = setResource("id_halaman_4","id");
-                    break;
-                case 4:
-                    tampilkanMenurutId = setResource("id_halaman_5","id");
-                    break;
-                case 5:
-                    tampilkanMenurutId = setResource("id_halaman_6","id");
-                    break;
-                case 6:
-                    tampilkanMenurutId = setResource("id_halaman_7","id");
-                    break;
-                case 7:
-                    tampilkanMenurutId = setResource("id_halaman_8","id");
-                    break;
-                case 8:
-                    tampilkanMenurutId = setResource("id_halaman_9","id");
-                    break;
-                case 9:
-                    tampilkanMenurutId = setResource("id_halaman_10","id");
-                    break;
-                case 10:
-                    tampilkanMenurutId = setResource("id_halaman_11","id");
-                    break;
-                case 11:
-                    tampilkanMenurutId = setResource("id_halaman_12","id");
-                    break;
-                case 12:
-                    tampilkanMenurutId = setResource("id_halaman_13","id");
-                    break;
-                case 13:
-                    tampilkanMenurutId = setResource("id_halaman_14","id");
-                    break;
-                case 14:
-                    tampilkanMenurutId = setResource("id_halaman_15","id");
-                    break;
-                case 15:
-                    tampilkanMenurutId = setResource("id_halaman_16","id");
-                    break;
-                case 16:
-                    tampilkanMenurutId = setResource("id_halaman_17","id");
-                    break;
-                case 17:
-                    tampilkanMenurutId = setResource("id_halaman_18","id");
-                    break;
-                case 18:
-                    tampilkanMenurutId = setResource("id_halaman_19","id");
-                    break;
-                case 19:
-                    tampilkanMenurutId = setResource("id_halaman_20","id");
-                    break;
-                case 20:
-                    tampilkanMenurutId = setResource("id_halaman_21","id");
-                    break;
-                case 21:
-                    tampilkanMenurutId = setResource("id_halaman_22","id");
-                    break;
-                case 22:
-                    tampilkanMenurutId = setResource("id_halaman_23","id");
-                    break;
-                case 23:
-                    tampilkanMenurutId = setResource("id_halaman_24","id");
-                    break;
-                case 24:
-                    tampilkanMenurutId = setResource("id_halaman_25","id");
-                    break;
+            try {
+                for (int i = 0; i <= Jumlah_Page; i++) {
+                    if (position == i) {
+                        int x = i + 1;
+                        tampilkanMenurutId = setResource("id_halaman_" + x, "id");
+                    }
+                }
+            } catch (Throwable e){
+                e.getMessage();
             }
+            final View blurPage = findViewById(tampilkanMenurutId);
 
+            if (blurPage.getWidth()>0){
+                Bitmap image = JadikanBlur.blur(blurPage);
+                blurPage.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), image));
+            } else {
+                blurPage.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        Bitmap image = JadikanBlur.blur(blurPage);
+                        blurPage.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), image));
+                    }
+                });
+            }
             return findViewById(tampilkanMenurutId);
-
         }
 
         @Override

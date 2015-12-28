@@ -7,16 +7,15 @@ package com.suyonoion.easyviewpagerui;
  * This product is protected by copyright and distributed under
  * licenses restricting copying, distribution and decompilation.
  */
+
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
 public class CubeOutTransformer implements ViewPager.PageTransformer
 {
-    public boolean isPagingEnabled()
-    {
-        return true;
-    }
-
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void transformPage(View view, float position) {
         final float rotation = (position < 0 ? 90f : -90f) * Math.abs(position);
         view.setAlpha(rotation > 90f || rotation < -90f ? 0f : 1f);
