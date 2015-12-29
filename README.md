@@ -3,6 +3,9 @@
 #Java & Smali
 #by Suyonoion
 
+- simple add remove page
+- blur background
+
 Demo Sample : https://raw.githubusercontent.com/suyonoion/EasyViewpagerUI/master/app/easyviewpagerui_demo.apk
 
 Screenshoot 1 :
@@ -26,7 +29,7 @@ b. Buka kode_utama.xml
  - tambahkan LinearLayout id, sesuai jumlah page yang kamu edit/ganti
  contoh : 0x5, berarti 2 LinearLayout id yang harus kamu tambahkan.
  urutkan saja id_halaman_x nya.
-
+```
  <com.suyonoion.easyviewpagerui.ExpandedViewpagerUI android:id="@+id/id_viewpager" android:layout_width="match_parent" android:layout_height="match_parent" android:theme="@style/transparan">
 		<android.support.v4.view.PagerTabStrip android:id="@+id/id_judul" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top" android:background="#80159e58" android:textColor="#ffffffff"/>
 		<LinearLayout android:id="@+id/id_halaman_1" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/a2" android:gravity="center" android:orientation="vertical">
@@ -47,10 +50,11 @@ b. Buka kode_utama.xml
 		</LinearLayout>
 		----------------------------------------------------
  </com.suyonoion.easyviewpagerui.ExpandedViewpagerUI>
-
+```
 c. Buka strings-evp.xml / strings.xml
  - Tambahkan id string selanjutnya.
  contoh : 0x5, berarti tambahkan 2 id string baru.
+ ```
  <resources>
     <string name="judul_halaman_1">Page 1</string>
     <string name="judul_halaman_2">Page 2</string>
@@ -60,7 +64,7 @@ c. Buka strings-evp.xml / strings.xml
     <string name="judul_halaman_5">Page 5</string>
 	--------------
 </resources>
-
+```
 #MENGURANGI PAGE
 Sesuaikan Saja. tapi untuk strings jangan dikurangi. karena id string gakboleh dihapus, nanti error undefined.
 
