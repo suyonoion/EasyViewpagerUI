@@ -17,7 +17,7 @@ Screenshoot 2 :
 ![alt tag](https://raw.githubusercontent.com/suyonoion/EasyViewpagerUI/master/app/ss/Screenshot_20151229-070445.png)
 
 
-#MENAMBAH PAGES
+1. MENAMBAH PAGES
 
 a. Buka ExpandedViewpagerUI.smali
  - Cari const/4 v0, 0x3
@@ -25,6 +25,7 @@ a. Buka ExpandedViewpagerUI.smali
  - Ganti 0x3 dengan jumlah page sesuai keinginanmu
 	contoh : 0x5 untuk angka 5 (jumlah page 5)
 	*) gunakan Int to Hex untuk convert angka ke hex smali
+	*) kalau java edit Jumlah_Page = 5;
 b. Buka kode_utama.xml
  - tambahkan LinearLayout id, sesuai jumlah page yang kamu edit/ganti
  contoh : 0x5, berarti 2 LinearLayout id yang harus kamu tambahkan.
@@ -54,27 +55,25 @@ b. Buka kode_utama.xml
 c. Buka strings-evp.xml / strings.xml
  - Tambahkan id string selanjutnya.
  contoh : 0x5, berarti tambahkan 2 id string baru.
- ```
- <resources>
-    <string name="judul_halaman_1">Page 1</string>
-    <string name="judul_halaman_2">Page 2</string>
-    <string name="judul_halaman_3">Page 3</string>
-	--------------
-	<string name="judul_halaman_4">Page 4</string>
-    <string name="judul_halaman_5">Page 5</string>
-	--------------
-</resources>
-```
-#MENGURANGI PAGE
-Sesuaikan Saja. tapi untuk strings jangan dikurangi. karena id string gakboleh dihapus, nanti error undefined.
+ ```<resources>
+ <string name="judul_halaman_1">Page 1</string>
+ <string name="judul_halaman_2">Page 2</string>
+ <string name="judul_halaman_3">Page 3</string>
+ --------------
+ <string name="judul_halaman_4">Page 4</string>
+ <string name="judul_halaman_5">Page 5</string>
+ --------------
+ </resources>```
 
+2. MENGURANGI PAGE
+Sesuaikan Saja. tapi untuk strings jangan dikurangi. karena id string gakboleh dihapus, nanti error undefined.
 Sudah begitu saja.
 
-#SourceCode : github.com/suyonoion/EasyViewpagerUI
+#SourceCode : http://github.com/suyonoion/EasyViewpagerUI
 #Credit : suyonoion
 #Contact me on :
- - Facebook, fb.com/suyono.ion
- - Github, github.com/suyonoion
+ - Facebook, http://fb.com/suyono.ion
+ - Github, http://github.com/suyonoion
  - BBM, 5b45891d
  - No. +62 85 6190 5369
 #Donate : seikhlasnya.
