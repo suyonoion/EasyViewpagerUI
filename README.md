@@ -7,6 +7,7 @@
 - blur background
 
 Demo Sample : https://raw.githubusercontent.com/suyonoion/EasyViewpagerUI/master/app/easyviewpagerui_demo.apk
+Guide (smali) : https://raw.githubusercontent.com/suyonoion/EasyViewpagerUI/master/app/easyviewpagerui_simple_addremove_pages.zip
 
 Screenshoot 1 :
 
